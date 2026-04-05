@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --color-canvas: #09090b;
+  --color-panel: #0f1115;
+  --color-panel-muted: #12151b;
+  --color-panel-raised: #171b22;
+  --color-panel-strong: #1d222b;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-strong: rgba(255, 255, 255, 0.14);
+  --color-text: #f7f8fa;
+  --color-text-muted: #a6adbb;
+  --color-text-subtle: #7b8494;
+  --color-accent: #63f5ae;
+  --color-accent-strong: #4ade80;
+  --color-accent-soft: rgba(99, 245, 174, 0.14);
+  --color-success: #4ade80;
+  --color-danger: #fb7185;
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Inter', ui-monospace, monospace;
+  --shadow-panel:
+    0 30px 70px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --shadow-glow: 0 0 0 1px rgba(99, 245, 174, 0.05), 0 20px 50px rgba(99, 245, 174, 0.08);
+  --bg-hero-grid:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, #09090b 0%, #0b0d11 100%);
+  --bg-panel-glow:
+    radial-gradient(circle at top left, rgba(99, 245, 174, 0.06), transparent 42%);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --surface-soft: rgba(255, 255, 255, 0.03);
+    --surface-elevated: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    --surface-glass: rgba(18, 21, 27, 0.76);
+    --surface-panel: rgba(18, 21, 27, 0.82);
+    --surface-shell: rgba(15, 17, 21, 0.58);
+    --surface-sidebar: rgba(15, 17, 21, 0.88);
+    --overlay-start: rgba(9, 9, 11, 0.26);
+    --overlay-end: rgba(9, 9, 11, 0.88);
+    --bg-body:
+      radial-gradient(circle at top left, rgba(99, 245, 174, 0.08), transparent 24%),
+      radial-gradient(circle at top right, rgba(96, 165, 250, 0.05), transparent 20%),
+      linear-gradient(180deg, rgba(9, 9, 11, 0.98) 0%, rgba(9, 9, 11, 1) 100%);
+    --scrollbar-track: rgba(255, 255, 255, 0.03);
+    --scrollbar-thumb: rgba(99, 245, 174, 0.2);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-canvas);
+  }
+
+  :root[data-theme='light'] {
+    color-scheme: light;
+    --color-canvas: #f4f7fb;
+    --color-panel: #ffffff;
+    --color-panel-muted: #f8fafc;
+    --color-panel-raised: #eef3f8;
+    --color-panel-strong: #e6edf5;
+    --color-line: rgba(15, 23, 42, 0.08);
+    --color-line-strong: rgba(15, 23, 42, 0.14);
+    --color-text: #0f1720;
+    --color-text-muted: #475467;
+    --color-text-subtle: #667085;
+    --color-accent: #12b76a;
+    --color-accent-strong: #039855;
+    --color-accent-soft: rgba(18, 183, 106, 0.14);
+    --color-success: #16a34a;
+    --color-danger: #e11d48;
+    --color-warning: #d97706;
+    --color-info: #2563eb;
+    --shadow-panel:
+      0 24px 60px rgba(15, 23, 42, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    --shadow-glow: 0 0 0 1px rgba(18, 183, 106, 0.04), 0 14px 34px rgba(18, 183, 106, 0.08);
+    --bg-hero-grid:
+      linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(180deg, #f8fbff 0%, #f3f7fb 100%);
+    --bg-panel-glow:
+      radial-gradient(circle at top left, rgba(18, 183, 106, 0.05), transparent 42%);
+    --surface-soft: rgba(15, 23, 42, 0.03);
+    --surface-elevated: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(240, 245, 251, 0.98));
+    --surface-glass: rgba(255, 255, 255, 0.84);
+    --surface-panel: rgba(255, 255, 255, 0.92);
+    --surface-shell: rgba(255, 255, 255, 0.78);
+    --surface-sidebar: rgba(255, 255, 255, 0.92);
+    --overlay-start: rgba(244, 247, 251, 0.2);
+    --overlay-end: rgba(244, 247, 251, 0.7);
+    --bg-body:
+      radial-gradient(circle at top left, rgba(18, 183, 106, 0.08), transparent 22%),
+      radial-gradient(circle at top right, rgba(37, 99, 235, 0.05), transparent 18%),
+      linear-gradient(180deg, rgba(248, 251, 255, 0.98) 0%, rgba(244, 247, 251, 1) 100%);
+    --scrollbar-track: rgba(15, 23, 42, 0.04);
+    --scrollbar-thumb: rgba(18, 183, 106, 0.22);
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    @apply bg-canvas;
+  }
+
+  body {
+    @apply min-h-screen bg-canvas font-sans text-text antialiased;
+    background-image: var(--bg-body);
+  }
+
+  ::selection {
+    background: rgba(99, 245, 174, 0.22);
+    color: #f7f8fa;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  :where(button, input, textarea, select, a):focus-visible {
+    outline: 2px solid rgba(99, 245, 174, 0.45);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(99, 245, 174, 0.08);
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background-clip: content-box;
+  }
+}
