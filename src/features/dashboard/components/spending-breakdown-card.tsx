@@ -46,12 +46,12 @@ export function SpendingBreakdownCard({
           message="No completed expense categories are available for the selected range. Adjust the range or filters to restore the spending split."
         />
       ) : (
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,300px)_minmax(0,1fr)] xl:items-center">
+        <div className="grid gap-6 2xl:grid-cols-[minmax(260px,320px)_minmax(0,1fr)] 2xl:items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.35, ease: 'easeOut' }}
-            className="h-[280px]"
+            className="mx-auto h-[280px] w-full max-w-[320px]"
           >
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -93,7 +93,7 @@ export function SpendingBreakdownCard({
             </ResponsiveContainer>
           </motion.div>
 
-          <div className="space-y-3">
+          <div className="min-w-0 space-y-3">
             {data.map((item) => {
               const isActive = activeCategories.length === 0 || activeCategories.includes(item.category as TransactionCategory)
 
@@ -103,7 +103,7 @@ export function SpendingBreakdownCard({
                   type="button"
                   onClick={() => onCategoryClick(item.category as TransactionCategory)}
                   className={cn(
-                    'flex w-full items-center justify-between gap-4 rounded-[18px] border px-4 py-3 text-left transition',
+                    'flex w-full min-w-0 items-center justify-between gap-3 rounded-[18px] border px-4 py-3 text-left transition',
                     isActive
                       ? 'border-line-strong bg-[rgba(255,255,255,0.04)]'
                       : 'border-line bg-[rgba(255,255,255,0.02)] opacity-75 hover:opacity-100',
@@ -119,9 +119,13 @@ export function SpendingBreakdownCard({
                       <p className="text-xs uppercase tracking-[0.2em] text-text-subtle">{item.percentage}% share</p>
                     </div>
                   </div>
-                  <div className="text-right">
+                  <div className="shrink-0 text-right">
                     <p className="text-sm font-medium text-text">{formatCurrency(item.amount)}</p>
-                    <p className="text-xs text-text-muted">{isActive ? 'Included' : 'Filtered out'}</p>
+                    <p className="text-xs leading-5 text-text-muted">
+                      {item.percentage}% share
+                      <br />
+                      {isActive ? 'Included' : 'Filtered out'}
+                    </p>
                   </div>
                 </button>
               )

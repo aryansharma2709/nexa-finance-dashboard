@@ -5,7 +5,7 @@ import { env } from '@/lib/config/env'
 import '@/styles/index.css'
 
 async function enableMocking() {
-  if (!env.enableMsw || !import.meta.env.DEV) {
+  if (!env.enableMsw) {
     return
   }
 

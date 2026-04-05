@@ -44,7 +44,7 @@ export function AnalyticsRow() {
         </div>
       ) : null}
 
-      <div className="grid gap-5 xl:grid-cols-[minmax(0,1.45fr)_minmax(380px,0.95fr)]">
+      <div className="grid gap-5 2xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <BalanceTrendCard
           data={balanceTrendData}
           activeRange={activeRange}
