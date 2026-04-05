@@ -5,7 +5,6 @@ import {
   getCoreRowModel,
   getSortedRowModel,
   useReactTable,
-  type ColumnDef,
   type SortingState,
 } from '@tanstack/react-table'
 import { useTransactionsQuery } from '@/features/finance/api/use-finance-queries'
@@ -55,7 +54,7 @@ export function useTransactionsTable() {
     [transactions, filters],
   )
 
-  const columns = useMemo<ColumnDef<Transaction, unknown>[]>(
+  const columns = useMemo(
     () => [
       columnHelper.accessor('date', {
         id: 'date',
